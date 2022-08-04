@@ -18,7 +18,7 @@ void dfs(int x,int y)
 int main()
 {
     cin>>n>>m;
-    for(int p=1;p<=n;p++)for(int q=1;q<=m;q++)getchar(maps[p][q]);
+    for(int p=1;p<=n;p++)for(int q=1;q<=m;q++)maps[p][q]=getchar();
     for(int p=1;p<=n;p++)
     {
         for(int q=0;q<m;q++)

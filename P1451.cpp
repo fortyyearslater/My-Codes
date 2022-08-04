@@ -1,13 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 int maps[105][105]={1};
-int n,m,tag[105],cnt,dx[5]={-1,1,0,0},dy[5]={0,0,-1,1};
+int dx[5]={-1,1,0,0},dy[5]={0,0,-1,1};
+int n,m,cnt;
 void dfs(int x,int y)
 {
     maps[x][y]=0;
-    for(int p=-1;p<=1;p++)
+    for(int p=1;p<=4;p++)
     {
-        for(int q=-1;q<=1;q++)
+        for(int q=1;q<=4;q++)
         {
         	int kx=x+dx[p],ky=y+dy[q];
             if(maps[kx][ky]==0)continue;

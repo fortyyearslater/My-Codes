@@ -1,0 +1,3 @@
+#ifndef _c2a_
+#define _c2a_
+void _c2a_(char)=int _c2a_;

@@ -1,0 +1,4 @@
+E:\Codes\P1957.cpp	In function 'int main()':
+50	24	E:\Codes\P1957.cpp	[Error] cannot convert 'std::string {aka std::basic_string<char>}' to 'const char*' for argument '1' to 'int sscanf(const char*, const char*, ...)'
+54	25	E:\Codes\P1957.cpp	[Error] cannot convert 'std::string {aka std::basic_string<char>}' to 'const char*' for argument '1' to 'int sscanf(const char*, const char*, ...)'
+60	47	E:\Codes\P1957.cpp	[Error] 'make' was not declared in this scope

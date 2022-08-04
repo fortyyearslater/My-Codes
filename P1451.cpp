@@ -1,40 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
-int maps[105][105]={1};
-int dx[5]={-1,1,0,0},dy[5]={0,0,-1,1};
+int maps[105][105];
+int dx[4]={-1,1,0,0},dy[4]={0,0,-1,1};
 int n,m,cnt;
 void dfs(int x,int y)
 {
-    maps[x][y]=0;
-    for(int p=1;p<=4;p++)
-    {
-        for(int q=1;q<=4;q++)
-        {
-        	int kx=x+dx[p],ky=y+dy[q];
-            if(maps[kx][ky]==0)continue;
-			dfs(kx,ky);
-        }
-    }
+	maps[x][y]=0;
+    for(int i=0;i<4;i++){int kx=x+dx[i],ky=y+dy[i];if(kx>0&&kx<=n&&ky>0&&ky<=m&&maps[kx][ky]!=0)dfs(kx,ky);}
 }
 int main()
 {
     cin>>n>>m;
-    for(int p=1;p<=n;p++)for(int q=1;q<=m;q++)scanf("%ld",maps[p][q]);
-    for(int p=1;p<=n;p++)
-    {
-        for(int q=0;q<m;q++)
-        {
-  /*          if(maps[p][q]!='0')
-            {
-                dfs(p,q);
-                cnt++;
-            }
-            */
-            if(maps[p][q]==1)cout<<"("<<p<<","<<q<<")"<<endl; 
-            cout<<maps[p][q];
-        }
-        cout<<endl;
-    }
+    for(int i=1;i<=n;i++)for(int j=1;j<=m;j++)scanf("%1d",&maps[i][j]);
+	for(int p=1;p<=n;p++)for(int q=1;q<=m;q++){if(maps[p][q]==0)continue;dfs(p,q);cnt++;}
     cout<<cnt;
     return 0;
 }

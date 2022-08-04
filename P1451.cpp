@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-char maps[105][105]={'1'};
+int maps[105][105]={1};
 int n,m,tag[105],cnt,dx[5]={-1,1,0,0},dy[5]={0,0,-1,1};
 void dfs(int x,int y)
 {
@@ -18,7 +18,7 @@ void dfs(int x,int y)
 int main()
 {
     cin>>n>>m;
-    for(int p=1;p<=n;p++)for(int q=1;q<=m;q++)maps[p][q]=getchar();
+    for(int p=1;p<=n;p++)for(int q=1;q<=m;q++)scanf("%ld",maps[p][q]);
     for(int p=1;p<=n;p++)
     {
         for(int q=0;q<m;q++)
@@ -29,7 +29,7 @@ int main()
                 cnt++;
             }
             */
-            if(maps[p][q]=='1')cout<<"("<<p<<","<<q<<")"<<endl; 
+            if(maps[p][q]==1)cout<<"("<<p<<","<<q<<")"<<endl; 
             cout<<maps[p][q];
         }
         cout<<endl;

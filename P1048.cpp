@@ -1,34 +1,11 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
-int T,M,n,i,psum,tsum,msum;
-struct flower
-{
-	int t,prize;
-}f[1001];
-bool cmp(flower X,flower Y)
-{
-	if(X.prize!=Y.prize)return X.prize>Y.prize;
-	return X.t<Y.t;
-}
+int f[1001],c,n,w[101],v[101];
 int main()
 {
-	cin>>T>>M;
-	for(i=1;i<=M;i++)
-	{
-		cin>>f[i].t>>f[i].prize;
-	}
-	for(i=1;i<=M;i++)
-	{
-		tsum=0;
-		psum=0;
-		for(n=1;n<=i&&tsum<=T;n++)
-		{
-			tsum=f[n].t+tsum;
-			psum=f[n].prize+psum;
-			if(tsum>T)psum=psum-f[n].prize;
-		}
-		msum=max(msum,psum);
-	}
-	cout<<msum;
+	cin>>c>>n;
+	for(int i=1;i<=n;i++)cin>>w[i]>>v[i];
+	for(int i=1;i<=n;i++)for(int j=c;j>=w[i];j--)f[j]=max(f[j],f[j-w[i]]+v[i]);
+	cout<<f[c];
 	return 0;
 }

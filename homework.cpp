@@ -1,8 +1,11 @@
 #include <bits/stdc++.h>
-#include "zwyxgjlib.h"
+#include "tool/ctoa.h"
 using namespace std;
 long long gj[100000000];
 int main()
 {
-    int a,b;
+    string str;
+    cin>>str;
+    for(int i=0;i<str.length();i++)cout<<__ctoa(str[i])<<endl;
+    return 0;
 }

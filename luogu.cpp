@@ -1,60 +1,26 @@
 #include<stdio.h>
-void sort(int* arr, int n)
-{
-    int t,i,j;
-    for(i=0; i<=n; i++)
-    {
-        j=0;
-        for(j=0;j<n-1;j++)
-        {
-            if(arr[j]>=arr[j+1])
-            {
-                t=arr[j];
-                arr[j]=arr[j+1];
-                arr[j+1]=t;
-            }
+#include<string.h>
+#include<algorithm>  
+using namespace std;
+int main(){
+    char a[1000],b[1000],c[1001],*p1,*p2,*p3;
+    scanf("%s\n%s",a,b);
+    int la=strlen(a),lb=strlen(b),lc,tmp;
+    reverse(a,a+la);
+    reverse(b,b+lb);
+    p1=a;p2=b;
+    lc=la>lb?la:lb;
+    for(p3=c;p3<c+lc;p3++){
+        tmp+=(*p1+*p2-'0');
+        *p3=tmp<'0'?tmp+'0':tmp;
+        if(*p3>'9'){
+            tmp=1;
+            *p3-=10;
         }
+        else tmp=0;
+        p1++;p2++; 
     }
-}
-void check(int* arr, int n)
-{
-    int i=0;
-    int j=0;
-    int cnt=0;
-    int tmp[n];
-    for(int i=0;i<n; i++)
-    {
-     tmp[i]=arr[i];
-    }
-    sort(tmp,n);
-    for(int i=0;i<n-1;i++)
-    {
-     for(int j=i+1;j<n-1;j++)
-     {
-       if(tmp[i]==tmp[j])
-       {
-          tmp[j]=0;
-       }
-     }
-    }
-    for(i=0;i<n;i++)if(tmp[i]!=0)cnt++;
-    printf("%d\n",cnt);
-    for(i=0;i<n;i++)
-    {
-        if(tmp[i]!=0)
-        {
-            printf("%d ",tmp[i]);
-        }
-    }
-}
-int n,i,p[100];
-int main()
-{
-    scanf("%d",&n);
-    for(int i=0;i<n;i++)
-    {
-        scanf("%d", &p[i]);
-    }
-    check(p,n);
+    if(tmp) c[lc++]='1';
+    for(;lc;putchar(c[--lc]));
     return 0;
 }

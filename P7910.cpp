@@ -1,49 +1,37 @@
 #include <bits/stdc++.h>
 using namespace std;
-struct numb
+long long n,ord[10000001],a[100001];
+long long opr[4],q,p,opt;
+inline void reset()
 {
-    int data;
-    int order;
-}num[8000001],num2[8000001];
-long long n;
-bool cmp(numb x,numb y)
-{
-    if(x.data!=y.data)return x.data<y.data;
-    else return x.order<y.order;
+	for(int i=1;i<=n;i++)
+		for(int j=i;j>=2;j--)
+			if(a[j]<a[j-1])swap(ord[j],ord[j-1]);
 }
-void reset()
-{
-    for(int i=1;i<=n;i++)
-    {
-        num2[i].data = num[i].data;
-        num2[i].order = num[i].order;
-    }
-}
-long long opr[4],q,i,p,opt;
+
 int main()
 {
  //   freopen("P7910.in","r+",stdin);
  //   freopen("P7910.out","w+",stdout);
     cin>>n>>q;
-    for(i=1;i<=n;i++)
+    for(int i=1;i<=n;i++)
     {
-        cin>>num[n].data;
-        num[i].order=i;
+        cin>>a[i];
+        ord[i]=i;
     }
-    for(i=1;i<=q;i++)
+    for(int i=1;i<=q;i++)
     {
         cin>>opt;
         if(opt==1)
         {
             cin>>opr[1]>>opr[2];
-            num[opr[1]].data=opr[2];
+            a[ord[opr[1]]]=opr[2];
         }
         else if(opt==2)
         {
             cin>>opr[0];
             reset();
-            sort(num2+1,num2+1+n,cmp);
-            for(i=1;i<=n;i++)if(num2[i].order==opr[0])cout<<i;
+            for(int j=1;j<=n;j++)if(ord[j]==opr[0])cout<<j<<endl;
         }
     }
    return 0;
